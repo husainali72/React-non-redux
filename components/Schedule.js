@@ -35,7 +35,7 @@ class Registration extends React.Component {
         return (
             <div id="iframe-modal">
                 <div id="schedule-form">
-                    <iframe src="https://calendly.com/panda-bill/panda-pow-index-fund-info" width="100%" height="100%" frameborder="0" ></iframe>
+                    <iframe src="https://calendly.com/hbw-bill/hbw-pow-index-fund-info" width="100%" height="100%" frameborder="0" ></iframe>
                     <div className="exit-btn" onClick={this.props.closeIframe}>X</div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ const GET_ANALYTICS_KEY = 'GET_ANALYTICS_KEY'
 const GET_ANALYTICS_KEY_SUCCESS = 'GET_ANALYTICS_KEY_SUCCESS'
 const GET_ANALYTICS_KEY_FAILED = 'GET_ANALYTICS_KEY_FAILED'
 
-/* getting analytics result via api with key */
+/* getting events result via api with key */
 export const getAnalyticsResult = (key) => ({
     type: GET_ANALYTICS_RESULT, key
 })
@@ -33,7 +33,7 @@ export const getAnalyticsKeyFaild = (error) => ({
 
 export function getAnalytics(query) {
     /* url should be fixed after checking */
-    //const urlKey = `http://pandaapi-dev.azurewebsites.net/api/Analytics/CreateIndexMetric`;
+    //const urlKey = `http://hbwapi-dev.azurewebsites.net/api/Analytics/CreateIndexMetric`;
     const urlKey = commonApiURL.getAnalyticsKey()
     let urlResult
 
@@ -55,7 +55,7 @@ export function getAnalytics(query) {
                 /* url should be fixed after checking */
                 urlResult = commonApiURL.getAnalytics(key)
 
-                /* getting analytics result using key response */
+                /* getting events result using key response */
                 axios.get(urlResult)
                     .then(function (response) {
                         dispatch(getAnalyticsResultSuccess({ data: response.data, query: query }))

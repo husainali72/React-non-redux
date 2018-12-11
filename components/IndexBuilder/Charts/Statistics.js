@@ -110,7 +110,7 @@ class StatisticChart extends React.Component {
 		console.log(chartOptions1, chartOptions2)
     return (
       <div className="chart-box">
-				{this.props.analytics.data &&
+				{this.props.events.data &&
 					<Row>
 						<Col lg={6}>
 							<HighchartsReact
@@ -128,9 +128,9 @@ class StatisticChart extends React.Component {
 						</Col>
 					</Row>
         }
-        { !this.props.analytics.data &&
+        { !this.props.events.data &&
           <div className="blank-chart">
-            { this.props.analytics.loading && 
+            { this.props.events.loading && 
               <div className="blank-chart">
                 <ScaleLoader
                   sizeUnit={"px"}
@@ -142,7 +142,7 @@ class StatisticChart extends React.Component {
                 />
               </div>
             }
-            { !this.props.analytics.loading &&
+            { !this.props.events.loading &&
               <div className="blank-chart">
                 Please press "Submit" to build your personal index
               </div>
@@ -153,19 +153,19 @@ class StatisticChart extends React.Component {
     );
   }
   updateChart() {
-    if (this.props.analytics.data) {
-			console.log(this.props.analytics.data.financialStatistics.dailyVolatility[0])
+    if (this.props.events.data) {
+			console.log(this.props.events.data.financialStatistics.dailyVolatility[0])
 			let data1 = [
-				this.props.analytics.data.financialStatistics.dailyVolatility[0].portfolioRebalanced,
-				this.props.analytics.data.financialStatistics.dailyVolatility[0].portfolioNotRebalanced,
-				this.props.analytics.data.financialStatistics.dailyVolatility[0].benchmarkRebalanced,
-				this.props.analytics.data.financialStatistics.dailyVolatility[0].benchmarkNotRebalanced
+				this.props.events.data.financialStatistics.dailyVolatility[0].portfolioRebalanced,
+				this.props.events.data.financialStatistics.dailyVolatility[0].portfolioNotRebalanced,
+				this.props.events.data.financialStatistics.dailyVolatility[0].benchmarkRebalanced,
+				this.props.events.data.financialStatistics.dailyVolatility[0].benchmarkNotRebalanced
 			]
 			let data2 = [
-				this.props.analytics.data.financialStatistics.sharpeRatio[0].portfolioRebalanced,
-				this.props.analytics.data.financialStatistics.sharpeRatio[0].portfolioNotRebalanced,
-				this.props.analytics.data.financialStatistics.sharpeRatio[0].benchmarkRebalanced,
-				this.props.analytics.data.financialStatistics.sharpeRatio[0].benchmarkNotRebalanced
+				this.props.events.data.financialStatistics.sharpeRatio[0].portfolioRebalanced,
+				this.props.events.data.financialStatistics.sharpeRatio[0].portfolioNotRebalanced,
+				this.props.events.data.financialStatistics.sharpeRatio[0].benchmarkRebalanced,
+				this.props.events.data.financialStatistics.sharpeRatio[0].benchmarkNotRebalanced
 			]
 
       let { chartOptions1, chartOptions2 } = this.state
@@ -184,15 +184,15 @@ class StatisticChart extends React.Component {
     this.updateChart()
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.analytics !== this.props.analytics) {
+    if (prevProps.events !== this.props.events) {
       this.updateChart()
     }
   }
 }
 
 const mapState = state => ({ 
-  analytics: state.analytics,
-  query: state.analyticsQuery
+  events: state.events,
+  query: state.eventsQuery
 });
 
 export default connect(mapState)(StatisticChart)

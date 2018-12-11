@@ -6,10 +6,10 @@ import { DatePicker } from 'antd';
 // import {Link} from 'react-router-dom'
 // import { Row, Col } from 'react-bootstrap'
 
-const dummyNews = [ {title: "CryptoUK Trade Association Calls on MPs", url: "http://pandaanalytics-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}, 
-                    {title: "Blockchain is thr best thing ever says NYT", url: "http://pandaanalytics-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}, 
-                    {title: "Panda Analytics raises $100 billion", url: "http://pandaanalytics-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}, 
-                    {title: "Facebook hires engineering director for Blockchain", url: "http://pandaanalytics-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}]
+const dummyNews = [ {title: "CryptoUK Trade Association Calls on MPs", url: "http://hbwevents-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}, 
+                    {title: "Blockchain is thr best thing ever says NYT", url: "http://hbwevents-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}, 
+                    {title: "Panda Analytics raises $100 billion", url: "http://hbwevents-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}, 
+                    {title: "Facebook hires engineering director for Blockchain", url: "http://hbwevents-dev.f6egrcznwr.us-east-2.elasticbeanstalk.com/indexbuilder"}]
 
 class Settings extends React.Component {
     constructor(props) {

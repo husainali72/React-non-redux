@@ -82,10 +82,10 @@ class Navbar extends React.Component {
                 </li>
               </DropdownButton>
 
-                  <a id="pandaFundLink" onClick={() => this.checkLocation('panda-fund',true)} className={position === 'panda-fund' ? 'active' : ''}><div className="hidden-xs">Panda PoW Index Funds</div><div className="hidden-sm hidden-md hidden-lg hidden-xl">Panda Funds</div></a>
+                  <a id="hbwFundLink" onClick={() => this.checkLocation('hbw-fund',true)} className={position === 'hbw-fund' ? 'active' : ''}><div className="hidden-xs">Panda PoW Index Funds</div><div className="hidden-sm hidden-md hidden-lg hidden-xl">Panda Funds</div></a>
           </div>
           <div className="middle">
-                  <a onClick={() => this.checkLocation('landing',true)}><img id="logo" src="./assets/panda_icon_white.svg" /></a>
+                  <a onClick={() => this.checkLocation('landing',true)}><img id="logo" src="./assets/hbw_icon_white.svg" /></a>
           </div>
           <div className="right">
                   <a onClick={() => this.checkLocation('team',true)} className={position === 'team' ? 'active' : ''}>Team</a>

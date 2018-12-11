@@ -6,13 +6,13 @@ import InfoBox from './About-InfoContainer';
 import { openIframe } from '../../store';
 
 const PandaFund = (props) => {
-    var email = 'ir@pandaanalytics.com';
+    var email = 'ir@hbwevents.com';
     var subject = 'Request for more information';
     return (
-        <div id="panda-fund">
+        <div id="hbw-fund">
             <Row className="section">
                 <Col md={6} className="left">
-                    <img id="pow-img" src="./assets/panda_pow.svg" />
+                    <img id="pow-img" src="./assets/hbw_pow.svg" />
                     <p className="opaque">We are the world’s first Proof-of-Work (PoW) index fund available to both U.S. and non-U.S. investors. With the help of this complexity-free vehicle, our investors are able to capture the long run growth of this emerging new asset class.
                     </p>
                     {/*Show this layout on desktop, not on mobile
@@ -65,17 +65,7 @@ const PandaFund = (props) => {
                         <a href={"mailto:" + email + "?subject=" + subject}><button type="submit" className="start-btn">INVEST NOW</button></a>
                         <button type="submit" className="start-btn call-btn" onClick={props.openIframe}>SCHEDULE A CALL</button>
                     </div>
-                </Col>
-                {/* <Col md={6} className="right">
-                <Row className="hidden-xs">
-                    <InfoBox />
-                </Row>
-                <div className="button-container">
-                    <a href={"mailto:" + email + "?subject=" + subject}><button type="submit" className="start-btn">INVEST NOW</button></a>
-                    <button type="submit" className="start-btn call-btn" onClick={props.openIframe}>SCHEDULE A CALL</button>
-                   <iframe src="https://calendly.com/panda-bill/panda-pow-index-fund-info" width="500" height="281" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </Col> */}
+                </Col>                
             </Row >
         </div >
     )
@@ -85,11 +75,8 @@ const mapState = state => ({})
 const mapDispatch = dispatch => {
     return {
         openIframe: () => {
-            console.log('hello')
             return dispatch(openIframe())
         }
     }
 }
 export default connect(mapState, mapDispatch)(PandaFund)
-
-// export default PandaFund

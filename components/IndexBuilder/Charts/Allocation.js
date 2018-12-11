@@ -148,7 +148,7 @@ class AllocationHighChart extends React.Component {
         }
         { !data && 
           <Col>
-            { this.props.analytics.loading && 
+            { this.props.events.loading && 
               <div className="blank-chart">
                 <ScaleLoader
                   sizeUnit={"px"}
@@ -160,7 +160,7 @@ class AllocationHighChart extends React.Component {
                 />
               </div>
             }
-            { !this.props.analytics.loading &&
+            { !this.props.events.loading &&
               <div className="blank-chart">
                 Please press "Submit" to build your personal index
               </div>
@@ -182,10 +182,10 @@ class AllocationHighChart extends React.Component {
     this.setState ({activeChartIndex: activeChartIndex})
   }
   updateChart() {
-    if (this.props.analytics.data) {
+    if (this.props.events.data) {
       let data = [], dateList = [], recentDate = null, recentDateIndex = 0
-      for (let i = 0; i < this.props.analytics.data.portfolioDistribution.length; i ++) {
-        const obj = this.props.analytics.data.portfolioDistribution[i]
+      for (let i = 0; i < this.props.events.data.portfolioDistribution.length; i ++) {
+        const obj = this.props.events.data.portfolioDistribution[i]
         let dataTemp = []
         Object.keys(obj).forEach(function(key) {
           if (key === 'Date') {
@@ -214,13 +214,13 @@ class AllocationHighChart extends React.Component {
     this.updateChart()
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.analytics !== this.props.analytics) {
+    if (prevProps.events !== this.props.events) {
       this.updateChart()
     }
   }
 }
 const mapState = state => ({ 
-  analytics: state.analytics
+  events: state.events
 });
 
 const mapDispatch = dispatch => {

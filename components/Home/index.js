@@ -20,7 +20,7 @@ const Home = () => {
       <Element name="landing"><Landing /></Element>
       <About />
       <Element name="tools"><Tools /></Element>
-      <Element name="panda-fund"><PandaFund /></Element>
+      <Element name="hbw-fund"><PandaFund /></Element>
       <Element name="team"><Team /></Element>
       <Element name="faq"><Faq /></Element>
       {/*<Element name="news"><News /></Element>*/}

@@ -96,7 +96,7 @@ class DrawdownHighChart extends React.Component {
         }
         { !this.state.chartOptions.series[0] &&
           <div className="blank-chart">
-            { this.props.analytics.loading && 
+            { this.props.events.loading && 
               <div className="blank-chart">
                 <ScaleLoader
                   sizeUnit={"px"}
@@ -108,7 +108,7 @@ class DrawdownHighChart extends React.Component {
                 />
               </div>
             }
-            { !this.props.analytics.loading &&
+            { !this.props.events.loading &&
               <div className="blank-chart">
                 Please press "Submit" to build your personal index
               </div>
@@ -119,7 +119,7 @@ class DrawdownHighChart extends React.Component {
     );
   }
   updateChart() {
-    if (this.props.analytics.data) {
+    if (this.props.events.data) {
 
       let series = [ 
         {
@@ -160,20 +160,20 @@ class DrawdownHighChart extends React.Component {
         }
       ]
       
-      for (let i = 0; i < this.props.analytics.data.portfolioReturn.length; i++ ) {
-        series[0].data.push([this.props.analytics.data.portfolioReturn[i].date, this.props.analytics.data.portfolioReturn[i].portfolioRebalancedDrawdown*100])
-        series[1].data.push([this.props.analytics.data.portfolioReturn[i].date, this.props.analytics.data.portfolioReturn[i].portfolioNotRebalancedDrawdown*100])
-        series[2].data.push([this.props.analytics.data.portfolioReturn[i].date, this.props.analytics.data.portfolioReturn[i].benchmarkRebalancedDrawdown*100])
-        series[3].data.push([this.props.analytics.data.portfolioReturn[i].date, this.props.analytics.data.portfolioReturn[i].benchmarkNotRebalancedDrawdown*100])
+      for (let i = 0; i < this.props.events.data.portfolioReturn.length; i++ ) {
+        series[0].data.push([this.props.events.data.portfolioReturn[i].date, this.props.events.data.portfolioReturn[i].portfolioRebalancedDrawdown*100])
+        series[1].data.push([this.props.events.data.portfolioReturn[i].date, this.props.events.data.portfolioReturn[i].portfolioNotRebalancedDrawdown*100])
+        series[2].data.push([this.props.events.data.portfolioReturn[i].date, this.props.events.data.portfolioReturn[i].benchmarkRebalancedDrawdown*100])
+        series[3].data.push([this.props.events.data.portfolioReturn[i].date, this.props.events.data.portfolioReturn[i].benchmarkNotRebalancedDrawdown*100])
       }
 
-      const startDate = moment(this.props.analytics.data.portfolioReturn[0].date + now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
-      const endDate = moment(this.props.analytics.data.portfolioReturn[this.props.analytics.data.portfolioReturn.length-1].date + now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
+      const startDate = moment(this.props.events.data.portfolioReturn[0].date + now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
+      const endDate = moment(this.props.events.data.portfolioReturn[this.props.events.data.portfolioReturn.length-1].date + now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
       
       let { chartOptions } = this.state
       chartOptions.series = series
       chartOptions.title.text = `Drawdown from ${startDate} to ${endDate}`
-      chartOptions.subtitle.text = `rebalancing every ${this.props.analytics.query.rebalancingFrequency} days & transaction fee is assumed to be ${this.props.analytics.query.transactionCostPerc * 100}%`
+      chartOptions.subtitle.text = `rebalancing every ${this.props.events.query.rebalancingFrequency} days & transaction fee is assumed to be ${this.props.events.query.transactionCostPerc * 100}%`
       
       this.setState ({
         chartOptions: chartOptions,
@@ -185,14 +185,14 @@ class DrawdownHighChart extends React.Component {
     this.updateChart()
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.analytics !== this.props.analytics) {
+    if (prevProps.events !== this.props.events) {
       this.updateChart()
     }
   }
 }
 
 const mapState = state => ({ 
-  analytics: state.analytics
+  events: state.events
 });
 
 export default connect(mapState)(DrawdownHighChart)

@@ -109,7 +109,7 @@ class Toolkit extends React.Component {
 							<h5>Subscribe to Newsletter</h5>
 							<span className="nl-top-space"></span>
 							<Mailchimp
-								action='https://pandaanalytics.us18.list-manage.com/subscribe/post?u=8118fd69874c52c9d1df04277&amp;id=7ff1de4427'
+								action='https://hbwevents.us18.list-manage.com/subscribe/post?u=8118fd69874c52c9d1df04277&amp;id=7ff1de4427'
 								fields={[
 									{
 										name: 'FNAME',
@@ -119,7 +119,7 @@ class Toolkit extends React.Component {
 									},
 									{
 										name: 'EMAIL',
-										placeholder: 'info@pandaanalytics.com',
+										placeholder: 'info@hbwevents.com',
 										type: 'email',
 										required: true
 									}

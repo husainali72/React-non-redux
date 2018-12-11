@@ -1,6 +1,6 @@
 class commonApiURL {
     getBaseURL() {
-        return "https://pandaapi-dev.azurewebsites.net/api/"
+        return "https://hbwapi-dev.azurewebsites.net/api/"
     }
 
     getPriceHistorcalAPIURL() {

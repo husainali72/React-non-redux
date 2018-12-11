@@ -506,7 +506,7 @@ class IndexBuilder extends React.Component {
 									<div className="form-group-initial-investment">
 										<input className={this.state.initialInvestmentValidated ? 'text-input' : 'text-input validation-error'} type="text" value={'$' + this.state.initialInvestment} placeholder="$" onChange={this.investmentChange.bind(this)} />
 										{!this.state.initialInvestmentValidated && <small id="invalid-input-initial-investment" className="form-text text-muted validation-error">For large investments, consider using &nbsp;
-											<Link className="link-small" to="/#panda-fund" target="_blank">Panda PoW Index Funds</Link>
+											<Link className="link-small" to="/#hbw-fund" target="_blank">Panda PoW Index Funds</Link>
 										</small>}
 									</div>
 								</form>
@@ -595,8 +595,8 @@ class IndexBuilder extends React.Component {
 }
 
 const mapState = state => ({
-	loading: state.analytics.loading,
-	error: state.analytics.error
+	loading: state.events.loading,
+	error: state.events.error
 });
 
 const mapDispatch = dispatch => {

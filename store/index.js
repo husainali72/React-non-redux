@@ -5,13 +5,13 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import registrationModal from './registrationModal'
 import iframeModal from './iframeModal'
 import user from './user'
-import analytics from './analytics'
+import events from './events'
 
 const reducer = combineReducers({
 	registrationModal,
 	iframeModal,
 	user,
-	analytics
+	events
 
 })
 const middleware = composeWithDevTools(
@@ -24,4 +24,4 @@ export default store
 export * from './registrationModal'
 export * from './iframeModal'
 export * from './user'
-export * from './analytics'
+export * from './events'

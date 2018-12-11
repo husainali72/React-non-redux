@@ -102,7 +102,7 @@ class RebalancingHighChart extends React.Component {
         }
         { !this.state.chartOptions.series[0] &&
           <div className="blank-chart">
-            { this.props.analytics.loading && 
+            { this.props.events.loading && 
               <div className="blank-chart">
                 <ScaleLoader
                   sizeUnit={"px"}
@@ -114,7 +114,7 @@ class RebalancingHighChart extends React.Component {
                 />
               </div>
             }
-            { !this.props.analytics.loading &&
+            { !this.props.events.loading &&
               <div className="blank-chart">
                 Please press "Submit" to build your personal index
               </div>
@@ -125,9 +125,9 @@ class RebalancingHighChart extends React.Component {
     );
   }
   updateChart() {
-    if (this.props.analytics.data) {
+    if (this.props.events.data) {
         let series = [], index = 0
-        for (let key in this.props.analytics.data.portfolioRebalancedWeight[0]) {
+        for (let key in this.props.events.data.portfolioRebalancedWeight[0]) {
             if (key == 'Date') continue
             series.push ({
                 name: key,
@@ -136,21 +136,21 @@ class RebalancingHighChart extends React.Component {
             })
         }
         
-        for (let i = 0; i < this.props.analytics.data.portfolioRebalancedWeight.length; i++ ) {
-            const dt = this.props.analytics.data.portfolioRebalancedWeight[i].Date - now.getTimezoneOffset() * 60000
+        for (let i = 0; i < this.props.events.data.portfolioRebalancedWeight.length; i++ ) {
+            const dt = this.props.events.data.portfolioRebalancedWeight[i].Date - now.getTimezoneOffset() * 60000
             index = 0
-            for (let key in this.props.analytics.data.portfolioRebalancedWeight[i]) {
+            for (let key in this.props.events.data.portfolioRebalancedWeight[i]) {
                 if (key == 'Date') continue
                 series[index++].data.push (
                     [
-                        dt, this.props.analytics.data.portfolioRebalancedWeight[i][key]
+                        dt, this.props.events.data.portfolioRebalancedWeight[i][key]
                     ]
                 )
             }
         }
 
-        const startDate = moment(this.props.analytics.data.portfolioRebalancedWeight[0].Date - now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
-        const endDate = moment(this.props.analytics.data.portfolioRebalancedWeight[this.props.analytics.data.portfolioRebalancedWeight.length - 1].Date - now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
+        const startDate = moment(this.props.events.data.portfolioRebalancedWeight[0].Date - now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
+        const endDate = moment(this.props.events.data.portfolioRebalancedWeight[this.props.events.data.portfolioRebalancedWeight.length - 1].Date - now.getTimezoneOffset() * 60000).format("MMM DD, YYYY")
   
         let { chartOptions } = this.state
         chartOptions.series = series
@@ -165,15 +165,15 @@ class RebalancingHighChart extends React.Component {
     this.updateChart()
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.analytics !== this.props.analytics) {
+    if (prevProps.events !== this.props.events) {
       this.updateChart()
     }
   }
 }
 
 const mapState = state => ({ 
-  analytics: state.analytics,
-  query: state.analyticsQuery
+  events: state.events,
+  query: state.eventsQuery
 });
 
 export default connect(mapState)(RebalancingHighChart)

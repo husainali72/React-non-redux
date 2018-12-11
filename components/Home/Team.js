@@ -15,7 +15,7 @@ const founders = [{
 	image: 'profile_leon.jpg',
 	name: 'Leon Kim',
 	title: 'Data Scientist',
-	description: 'Leon is a developer with passion for building data analytics software. Prior to Panda Analytics, he has workd on building software & analytics research for Adivsory Board Company, ThirdPoint, LLC, Empricius Capital Management, and StudyTree. He manages Panda Analytics technology platform by day and organizes Philadelphia data science community by night.',
+	description: 'Leon is a developer with passion for building data events software. Prior to Panda Analytics, he has workd on building software & events research for Adivsory Board Company, ThirdPoint, LLC, Empricius Capital Management, and StudyTree. He manages Panda Analytics technology platform by day and organizes Philadelphia data science community by night.',
 	linkedIn: 'https://www.linkedin.com/in/leonkim92'
 },
 {
@@ -39,7 +39,7 @@ const founders = [{
 	image: 'profile_max.png',
 	name: 'Max Galka',
 	title: 'Advisor',
-	description: 'Max is the Cofounder/CEO of the blockchain analytics platform Elementus. He teaches data science at the University of Pennsylvania and has 10+ years of industry experience trading derivatives at Credit Suisse and Deutsche Bank.',
+	description: 'Max is the Cofounder/CEO of the blockchain events platform Elementus. He teaches data science at the University of Pennsylvania and has 10+ years of industry experience trading derivatives at Credit Suisse and Deutsche Bank.',
 	linkedIn: 'https://www.linkedin.com/in/maxgalka',
 	twitter: 'https://twitter.com/galka_max?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'
 }]

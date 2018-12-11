@@ -11,9 +11,9 @@ const Founder = (props) => {
 				<h4>{props.info.name}</h4>
 				<p>{props.info.title}</p>
 				<div className="icon-container">
-					{ props.info.twitter && <a href="{ props.info.twitter }"><Icon type="twitter" /></a>}
-					{ props.info.linkedIn && <a href="{props.info.linkedIn}"><Icon type="linkedin" /></a>}
-					{ props.info.URL && <a href="{props.info.URL}"><Icon type="global" /></a>}
+					{ props.info.twitter && <a href="#"><Icon type="twitter" /></a>}
+					{ props.info.linkedIn && <a href="#"><Icon type="linkedin" /></a>}
+					{ props.info.URL && <a href="#"><Icon type="global" /></a>}
 				</div>
 			</div>
 			<div>
